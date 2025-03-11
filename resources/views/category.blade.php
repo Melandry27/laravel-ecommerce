@@ -3,6 +3,9 @@
 @section('title', $category->name)
 
 @section('content')
+@dump($breadcrumbItems)
+    <x-breadcrumb :items="$breadcrumbItems" />
+
     <h1>{{ $category->name }}</h1>
     <p>{{ $category->description }}</p>
 
@@ -17,7 +20,7 @@
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
                         <p class="card-text"><strong>Prix : {{ $product->price }} €</strong></p>
-                        <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">Voir le produit</a>
+                        <a href="{{ route('product.show', $product->slug) }}" class="btn btn-primary">Voir le produit</a>
                     </div>
                 </div>
             </div>

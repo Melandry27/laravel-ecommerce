@@ -4,17 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Str;
 
 class Category extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name', 'description', 'parent_id', 'slug'];
 
-    protected $fillable = [
-        'parent_id',
-        'name',
-        'description',
-    ];
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($category) {
+            if (empty($category->slug)) {
+                $category->slug = Str::slug($category->name, '-');
+            }
+        });
+    }
 
     public function parent()
     {
@@ -31,3 +36,4 @@ class Category extends Model
         return $this->belongsToMany(Product::class);
     }
 }
+

@@ -10,6 +10,13 @@ class HomeController extends Controller
     {
         $categories = Category::whereNull('parent_id')->get();
 
-        return view('home', compact('categories'));
+        $categoriesNavbar = Category::whereNull('parent_id')->get()->map(function ($category) {
+        return [
+            'name' => $category->name,
+            'url' => route('category.show', $category->slug),
+        ];
+        });
+
+        return view('home', compact('categories', 'categoriesNavbar'));
     }
 }

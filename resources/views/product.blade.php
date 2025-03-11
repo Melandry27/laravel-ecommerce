@@ -3,6 +3,8 @@
 @section('title', $product->name)
 
 @section('content')
+@dump($breadcrumbItems)
+    <x-breadcrumb :items="$breadcrumbItems" />
     <div class="row">
         <div class="col-md-6">
             @if($product->images->first())
