@@ -28,6 +28,6 @@ class CategoryController extends Controller
             $breadcrumbItems[] = ['name' => $category->name, 'url' => route('category.show', $category->slug)];
         }
     
-        return view('category', compact('categoriesNavbar', 'breadcrumbItems', 'category', 'products'));
+        return view('category', compact('categoriesNavbar', 'breadcrumbItems', 'category'));
     }
 }
