@@ -14,11 +14,8 @@ class ImageSeeder extends Seeder
 
         foreach ($products as $product) {
             Image::create([
-                // URL d'image générée dynamiquement avec le nom du produit
-                'url'           => "https://via.placeholder.com/150?text={$product->name}",
-                // ID du produit associé (relation polymorphe)
+                'url'           => "https://placehold.co/150?text={$product->name}",
                 'imageable_id'   => $product->id,
-                // Type du modèle associé (relation polymorphe)
                 'imageable_type' => Product::class,
             ]);
         }

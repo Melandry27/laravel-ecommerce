@@ -4,26 +4,26 @@
 
 ### Page d'accueil
 
-- [ ] Ajouter une navbar dynamique avec les catégories principales (haut niveau).
-- [ ] Créer une section "Produits mis en avant" avec 5 produits aléatoires activés.
+- [x] Ajouter une navbar dynamique avec les catégories principales (haut niveau).
+- [x] Créer une section "Produits mis en avant" avec 5 produits aléatoires activés.
 
 ### Page catégorie
 
-- [ ] Vérifier si le slug dans l'URL correspond au slug de la catégorie et rediriger si nécessaire.
-- [ ] Ajouter un fil d’ariane dynamique basé sur la hiérarchie des catégories.
-- [ ] Afficher les catégories enfants sous la catégorie actuelle.
+- [x] Vérifier si le slug dans l'URL correspond au slug de la catégorie et rediriger si nécessaire.
+- [x] Ajouter un fil d’ariane dynamique basé sur la hiérarchie des catégories.
+- [x] Afficher les catégories enfants sous la catégorie actuelle.
 - [ ] Implémenter la pagination pour afficher les produits de la catégorie actuelle et ses sous-catégories.
 - [ ] Filtrer pour n'afficher que les produits activés.
 
 ### Page produit
 
-- [ ] Vérifier si le slug dans l'URL correspond au slug du produit et rediriger si nécessaire.
-- [ ] Ajouter un fil d’ariane dynamique basé sur la hiérarchie des catégories du produit.
-- [ ] Afficher toutes les informations du produit :
-  - [ ] Titre
-  - [ ] Description HTML
-  - [ ] Prix
-  - [ ] Photos (relation polymorphique)
+- [x] Vérifier si le slug dans l'URL correspond au slug du produit et rediriger si nécessaire.
+- [x] Ajouter un fil d’ariane dynamique basé sur la hiérarchie des catégories du produit.
+- [x] Afficher toutes les informations du produit :
+  - [x] Titre
+  - [x] Description HTML
+  - [x] Prix
+  - [x] Photos (relation polymorphique)
 - [ ] Renvoyer une erreur 404 si le produit est désactivé.
 - [ ] Ajouter une section "Produits similaires" avec 5 produits aléatoires de la même catégorie.
 

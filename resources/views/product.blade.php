@@ -3,12 +3,11 @@
 @section('title', $product->name)
 
 @section('content')
-@dump($breadcrumbItems)
     <x-breadcrumb :items="$breadcrumbItems" />
     <div class="row">
         <div class="col-md-6">
-            @if($product->images->first())
-                <img src="{{ $product->images->first()->url }}" class="img-fluid" alt="{{ $product->name }}">
+            @if($product->image->url)
+            <img src="{{ $product->image->url }}" class="img-fluid" alt="{{ $product->name }}" style="width: 500px; height: 500px;">
             @endif
         </div>
         <div class="col-md-6">
@@ -18,7 +17,7 @@
             <p>
                 Catégories :
                 @foreach($product->categories as $category)
-                    <a href="{{ route('category.show', $category->id) }}" class="badge bg-secondary">{{ $category->name }}</a>
+                    <a href="{{ route('category.show', $category->slug) }}" class="badge bg-secondary">{{ $category->name }}</a>
                 @endforeach
             </p>
             <button class="btn btn-primary">Ajouter au panier</button>

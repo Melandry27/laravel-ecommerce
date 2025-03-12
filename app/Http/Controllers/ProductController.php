@@ -2,13 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->with(['categories', 'images'])->firstOrFail();
+        $product = Product::where('slug', $slug)->with(['categories', 'images'])->first();
+
+        if (!$product) {
+            return redirect()->route('home');
+        }
+
+        $product->image = Image::where('id', $product->id)->first();
+
+        $product->categories = Category::whereHas('products', function ($query) use ($product) {
+            $query->where('id', $product->id);
+        })->get();
 
         $first_category = $product->categories->first();
 
